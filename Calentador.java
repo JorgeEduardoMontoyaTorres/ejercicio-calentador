@@ -38,7 +38,7 @@ public class Calentador
     {
         // initialise instance variables
         temperatura = 15;
-        incremento 3;
+        incremento = 3;
     }
 
     /**
@@ -46,12 +46,14 @@ public class Calentador
      */
     public void calentar()
     {
-        temperatura = temperatura + 5;
+        if(temperatura <= 30)
+            temperatura = temperatura + incremento;
     }
     
     public void enfriar()
     {
-        temperatura = temperatura - 5;
+        if(temperatura >= -10)
+            temperatura = temperatura - incremento;
     }
     
     /**
