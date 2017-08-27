@@ -1,25 +1,24 @@
-
 /**
- Crear un nuevo proyecto en BlueJ: ejercicio-calentador. Crear una clase Calentador que contenga una sola variable
- de instancia de tipo entero: temperatura. Defina un constructor sin parámetros.
- La temperatura debe ser inicializada en el constructor con un valor de 15º.
- Defina los métodos de modificación calentar y enfriar cuyo efecto es aumentar o
- disminuir el valor de la temperatura en 5º respectivamente. Defina un método de
- acceso que retorne el valor de la temperatura. Hacer pruebas del proyecto creando un
- objeto calentador y enviándole los mensajes de calentar y enfriar para verificar su temperatura.
+ REALICE LAS SIGUIENTES MODIFICACIONES AL EJERCICIO-CALENTADOR
+ Y ACTUALICE LOS CAMBIOS EN EL REPOSITORIO DE GITHUB.
 
- Crear un nuevo repositorio en GitHub: ejercicio-calentador y subir (compartir) el proyecto de BlueJ en el repositorio de GitHub.
+ Agregar dos nuevos campos enteros: min y max. Los valores iniciales
+ de min y max deben establecerse mediante parámetros del constructor.
+ Modifique el método calentar para que la temperatura no pueda recibir
+ un valor mayor que max. De manera similar modifique enfriar para que no
+ permita que la temperatura tome un valor menor que min. Revise que la
+ clase funcione correctamente creando algunos objetos Calentador en BlueJ.
+ Registre los cambios realizados presionando el botón Commit y agregando
+ un comentario desde BlueJ.
 
- Descargar el proyecto desde GitHub ejercicio-calentador y asignarle el nombre ejercicio-calentador-descargado.
- 
- En el proyecto ejercicio-calentador-descargado, modificar la clase Calentador agregando
- una nueva variable de instancia entera: incremento. Modificar el constructor de tal
- manera que el valor inicial del incremento sea 3º. Registre los cambios realizados presionando
- el botón Commit y agregando un comentario desde BlueJ.
-
- Modifique los métodos calentar y enfriar de modo que usen el valor del incremento en lugar
- del valor explícito de 3º y que el valor mínimo del calefactor no sea menor que -10º ni mayor que 30º.
- Registre los cambios realizados presionando el botón Commit y agregando un comentario desde BlueJ.
+ Agregue un método modificarIncremento, que tiene un sólo parámetro entero
+ que se usa para establecer el valor del incremento. Revise que la clase
+ funcione correctamente creando algunos objetos Calentador en BlueJ.
+ Si se pasa un valor negativo al método modificarIncremento,
+ ¿sigue funcionando todo tal como se esperaba? Realice las validaciones
+ necesarias para que este método no permita que se asigne un valor negativo.
+ Registre los cambios realizados presionando el botón Commit y agregando
+ un comentario desde BlueJ.
 
  Finalmente, actualice el repositorio en GitHub presionando el botón Push.
  Verifique desde el navegador que se hayan subido los cambios.
@@ -30,15 +29,19 @@ public class Calentador
     // instance variables
     private int temperatura;
     private int incremento;
+    private int min;
+    private int max;
 
     /**
      * Constructor for objects of class Calentador
      */
-    public Calentador()
+    public Calentador(int minimo, int maximo)
     {
         // initialise instance variables
         temperatura = 15;
         incremento = 3;
+        min = minimo;
+        max = maximo;
     }
 
     /**
@@ -46,13 +49,13 @@ public class Calentador
      */
     public void calentar()
     {
-        if(temperatura <= 30)
+        if(temperatura < max)
             temperatura = temperatura + incremento;
     }
     
     public void enfriar()
     {
-        if(temperatura >= -10)
+        if(temperatura > min)
             temperatura = temperatura - incremento;
     }
     
