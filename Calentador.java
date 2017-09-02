@@ -33,7 +33,9 @@ public class Calentador
     private int max;
 
     /**
-     * Constructor for objects of class Calentador
+     * Constructor para los objetos de la clase Calentador.
+     * @param minimo Mínimo de temperatura a mostrar.
+     * @param maximo Máximo de temperatura a mostrar.
      */
     public Calentador(int minimo, int maximo)
     {
@@ -46,6 +48,7 @@ public class Calentador
 
     /**
      * Metodos de modificación
+     * Sube la temperatura segun el incremento definido.
      */
     public void calentar()
     {
@@ -53,12 +56,18 @@ public class Calentador
             temperatura = temperatura + incre;
     }
     
+    /**
+     * Baja la temperatura según el incremento definido.
+     */
     public void enfriar()
     {
         if(temperatura > min)
             temperatura = temperatura - incre;
     }
     
+    /**
+     * Modifica el incremento de temperatura a la que uno desee.
+     */
     public void modificarIncremento(int incremento)
     {
         if(incremento > 0)
@@ -67,6 +76,8 @@ public class Calentador
     
     /**
      * Metodo de acceso
+     * Actualiza la temperatura mostrandola.
+     * @return Muestra la temperatura actual.
      */
     public int actualizar()
     {
